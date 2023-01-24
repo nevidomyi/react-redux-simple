@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { logout } from "../store/user";
+import { useDispatch, useSelector } from "react-redux";
+import user, { logout } from "../store/user";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -48,6 +48,7 @@ const LogOutBtn = styled.button`
 
 
 export default function Profile() {
+    const {name, age, email, avatar} = useSelector((state) => state.user.value);
     const dispatch = useDispatch();
 
     function logOutHandler(event) {
@@ -55,14 +56,16 @@ export default function Profile() {
         dispatch(logout());
     }
 
+    console.log(useSelector((state) => state.user.value));
+
     return(
         <ProfileWrapper>
             <AvatarWrapper>
-                <Avatar src="https://static.vecteezy.com/packs/media/vectors/term-bg-1-3d6355ab.jpg"/>
+                <Avatar src={avatar}/>
             </AvatarWrapper>
-            <TextLine>Name: Ruslan</TextLine>
-            <TextLine>Age: 23</TextLine>
-            <TextLine>Email: rrzaevich@gmail.com</TextLine>
+            <TextLine>Name: {name}</TextLine>
+            <TextLine>Age: {age}</TextLine>
+            <TextLine>Email: {email}</TextLine>
             <LogOutBtn onClick={event => logOutHandler(event)}>
                 Log out
             </LogOutBtn>
