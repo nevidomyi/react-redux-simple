@@ -1,17 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 const defAvatar = "https://www.pngitem.com/pimgs/m/421-4213053_default-avatar-icon-hd-png-download.png";
+const initialValue = {name: "", age: 0, email: "", avatar: defAvatar, logged: false};
 
 export const userSlice = createSlice({
     name: "user",
-    initialState: {value: {name: "", age: 0, email: "", avatar: defAvatar, logged: false}},
+    initialState: {value: initialValue},
     reducers: {
         login: (state, action) => {
             state.value = action.payload;
         },
 
-        // logout
+        logout: (state) => {
+            state.value = initialValue;
+        },
     }
 });
 

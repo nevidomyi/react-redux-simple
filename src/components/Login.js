@@ -58,6 +58,14 @@ export default function Login() {
         })
     }
 
+    function logInHandler (event) {
+        event.preventDefault();
+        dispatch(login({
+            ...value,
+            logged: true,
+        }));
+    }
+
     return(
         <LoginWrapper>
             <Form onChange={(event) => {
@@ -68,15 +76,9 @@ export default function Login() {
                 <Input type="email" placeholder="Email" name="email"/>
                 <Input type="text" placeholder="Link for img" name="avatar"/>
             </Form>
-            <LogInBtn
-                onClick={(event) => {
-                    event.preventDefault();
-                    dispatch(login({
-                        ...value,
-                        logged: true,
-                    }));
-                }}
-            >Log In</LogInBtn>
+            <LogInBtn onClick={event => logInHandler(event)}>
+                Log In
+            </LogInBtn>
         </LoginWrapper>
     )
 }

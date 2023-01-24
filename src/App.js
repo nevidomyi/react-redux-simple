@@ -2,14 +2,14 @@ import { Provider } from 'react-redux';
 import './App.css';
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-import 
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { logged } = useSelector((state) => state.user.value);
+
   return (
     <div className="App">
-
-      <Login/>
-      {/* <Profile/> */}
+      {logged ? <Profile/>: <Login/>}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { logout } from "../store/user";
 
 const ProfileWrapper = styled.div`
     display: flex;
@@ -43,9 +45,16 @@ const LogOutBtn = styled.button`
     color: #fff;
 `;
 
-// Email: rrzaevich@gmail.com
+
 
 export default function Profile() {
+    const dispatch = useDispatch();
+
+    function logOutHandler(event) {
+        event.preventDefault();
+        dispatch(logout());
+    }
+
     return(
         <ProfileWrapper>
             <AvatarWrapper>
@@ -54,7 +63,9 @@ export default function Profile() {
             <TextLine>Name: Ruslan</TextLine>
             <TextLine>Age: 23</TextLine>
             <TextLine>Email: rrzaevich@gmail.com</TextLine>
-            <LogOutBtn>Log out</LogOutBtn>
+            <LogOutBtn onClick={event => logOutHandler(event)}>
+                Log out
+            </LogOutBtn>
         </ProfileWrapper>
     )
 }
