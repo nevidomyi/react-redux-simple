@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Redux form
+
+Simple form, which using for handing some values throw components in React.
+There are two components, login form and personal information
+
+### Example
+![Example1](https://user-images.githubusercontent.com/47025875/215270726-fc166fc8-d8f7-48ec-99fb-056850ff9b0f.png)
+![Example2](https://user-images.githubusercontent.com/47025875/215270734-4d04f61e-757a-413b-96d8-def84c5052c3.png)
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -13,11 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
